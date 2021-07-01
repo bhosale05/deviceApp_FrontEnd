@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "moment": "^2.29.1",
     "vue": "^2.6.11",
+    "vue-simple-alert": "^1.1.1",
     "vuetify": "^2.5.6"
   },
   "devDependencies": {

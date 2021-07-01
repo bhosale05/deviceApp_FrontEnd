@@ -26,9 +26,11 @@
    </div>
 </template>
 <script>
+import Vue from "vue";
 import axios from 'axios';
 import Bus from './bus.js'
-
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
 export default {
     name: "signup",
      components: {
@@ -56,6 +58,7 @@ export default {
                 let res = await axios.post(path, payload);
                 if(res.status === 200) {
                     console.log(res.data);
+                    this.$alert("Add User Successfully");
                     Bus.$emit('widgetname', {name: 'signin'});
                 } else {
                     console.log(res)

@@ -66,10 +66,13 @@
    </div>
 </template>
 <script>
+import Vue from "vue";
 import Bus from './bus.js'
 import header1 from './header'
 import axios from 'axios';
 import moment from 'moment';
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
 export default {
     name: "showdevice",
     components: {
@@ -97,12 +100,13 @@ export default {
             }
         },
         async removeDevice(item){
-            let path = 'http://localhost:3000/remove/'+item._id;
+            let path = `http://localhost:3000/remove/${item._id}`;
             try {
                 console.log(path);
                 let res = await axios.delete(path);
                 if(res.status === 200) {
                     console.log(res.data);
+                    this.$alert("Remove Device Successfully");
                     this.getDevice();
                 }
             } catch(ex) {
@@ -118,11 +122,12 @@ export default {
             if(now > startDate && now < endDate) {
                 item.lastcheckedoutdate = new Date(Date.now()).toISOString();
                 item.lastcheckedoutby = Bus.username;
-                let path = 'http://localhost:3000/update/'+item._id;
+                let path = `http://localhost:3000/update/${item._id}1`;
                 try {
                     console.log(path);
                     let res = await axios.put(path, item);
                     if(res.status === 200) {
+                        this.$alert("Update Device Successfully");
                         console.log(res.data);
                         this.getDevice();
                     }

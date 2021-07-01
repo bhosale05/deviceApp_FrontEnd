@@ -20,9 +20,11 @@
    </div>
 </template>
 <script>
+import Vue from "vue";
 import Bus from './bus.js'
 import axios from 'axios';
-
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
 export default {
     name: "signin",
     components: {
@@ -47,6 +49,7 @@ export default {
                 if(res.status === 200) {
                     console.log(res.data);
                     Bus.username = this.username;
+                    this.$alert("Sign In User Successfully");
                     Bus.$emit('widgetname', {name: 'showdevice'});
                 } else {
                     console.log(res)

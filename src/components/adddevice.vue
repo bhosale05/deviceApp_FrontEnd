@@ -23,10 +23,12 @@
    </v-container>
 </template>
 <script>
+import Vue from "vue";
 import header1 from './header'
 import axios from 'axios';
 import Bus from './bus';
-
+import VueSimpleAlert from "vue-simple-alert";
+Vue.use(VueSimpleAlert);
 export default {
     name: "adddevice",
     components: {
@@ -53,6 +55,7 @@ export default {
                 }
                 let res = await axios.post(path, payload);
                 if(res.status === 200) {
+                    this.$alert("Add New Device Successfully");
                     console.log(res.data.result);
                     Bus.$emit('widgetname', {name:"showdevice"});
                 }
