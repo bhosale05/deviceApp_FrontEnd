@@ -9,6 +9,9 @@
 
 ## Dependecny
     - deviceApp_restAPI is should be running on port 3000
+    - github url for soucre code is : git clone https://github.com/bhosale05/deviceApp_restAPI.git
+    - start cmd : npm start
+    - refer README.md file for other info in github link => https://github.com/bhosale05/deviceApp_restAPI.git
 
 ## SatrtUp Point of app 
     - Running url localhost:8080, then goto the signin page, if user don't have accound then click on sign up and add user then sign in to app
